@@ -1,0 +1,31 @@
+@use '@/styles/variables.scss' as *;
+
+.benefits {
+  background-color: $bg-color-secondary;
+  padding: 100px 0;
+
+  .wrapper {
+    .title {
+      font-size: 50px;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .profit {
+    padding: 50px 0;
+
+    .wrapper {
+      .title {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .profit {
+    padding: 40px 0;
+  }
+}

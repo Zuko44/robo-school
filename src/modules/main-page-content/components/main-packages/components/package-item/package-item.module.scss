@@ -1,0 +1,103 @@
+@use '@/styles/variables.scss' as *;
+
+.packageItem {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-basis: 360px;
+  border: 2px solid $bg-color-quaternary;
+  border-radius: 20px;
+  padding: 40px;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    background-color: $bg-color-tertiary;
+    border-color: $bg-color-tertiary;
+    color: $text-color-secondary;
+    transform: scale(1.1);
+
+    .packageTitle {
+      &::before,
+      &::after {
+        background-color: $bg-color-primary;
+      }
+    }
+  }
+
+  .packageTitle {
+    font-size: 30px;
+    font-weight: 600;
+    align-self: center;
+    width: max-content;
+    text-transform: uppercase;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-color 0.2s ease;
+      position: absolute;
+      width: 19px;
+      height: 3px;
+      background-color: $bg-color-tertiary;
+    }
+
+    &::before {
+      left: -33px;
+    }
+    &::after {
+      right: -33px;
+    }
+  }
+
+  .packageText {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 33px;
+  }
+
+  .packagePrice {
+    font-size: 50px;
+    font-weight: 600;
+  }
+
+  .packageDescription {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .packageItem {
+    padding: 40px 20px;
+
+    &:hover {
+      margin: 0 10px;
+    }
+
+    .packageText {
+      margin-top: 40px;
+    }
+
+    .packagePrice {
+      font-size: 40px;
+    }
+
+    .packageDescription {
+      font-size: 16px;
+    }
+
+    .button {
+      font-size: 16px;
+      margin-top: 25px;
+    }
+  }
+}

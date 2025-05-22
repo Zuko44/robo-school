@@ -1,0 +1,34 @@
+@use '@/styles/variables.scss' as *;
+
+.teachers {
+  padding-bottom: 0;
+
+  .wrapper {
+    .title {
+      font-size: 50px;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .teachers {
+    padding: 60px 0 0 0;
+    .wrapper {
+      .title {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .teachers {
+    padding-top: 40px;
+    .wrapper {
+      .title {
+        font-size: 30px;
+      }
+    }
+  }
+}

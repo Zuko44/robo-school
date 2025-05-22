@@ -1,0 +1,25 @@
+@use 'fonts' as *;
+
+$primary-color: #141024;
+$secondary-color: #ffffff;
+$tertiary-color: #dddce0;
+$accent-color: #d52027;
+
+$font-default: 'Jost', sans-serif;
+
+$text-color-primary: $primary-color;
+$text-color-secondary: $secondary-color;
+$text-color-tertiary: #595664;
+$text-color-accent: $accent-color;
+
+$bg-color-primary: $secondary-color;
+$bg-color-secondary: #f9f9f9;
+$bg-color-tertiary: $primary-color;
+$bg-color-quaternary: $tertiary-color;
+$bg-color-accent: $accent-color;
+
+$controls-bg-primary: $accent-color;
+$controls-bg-secondary: $secondary-color;
+$controls-bg-tertiary: $primary-color;
+$controls-color-primary: $secondary-color;
+$controls-color-secondary: $accent-color;

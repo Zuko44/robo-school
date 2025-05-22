@@ -1,0 +1,11 @@
+@use '@/styles/variables.scss' as *;
+
+.phoneCall {
+  font-size: 30px;
+  font-weight: 600;
+  color: $text-color-secondary;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
