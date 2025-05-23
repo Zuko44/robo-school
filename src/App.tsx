@@ -1,7 +1,8 @@
 import { MainPage } from '@/pages/main-page';
 
-import './styles/index.scss';
 import { Layout } from './modules/layout';
+
+import './styles/index.scss';
 
 export const App = () => (
   <div>
