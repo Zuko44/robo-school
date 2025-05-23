@@ -1,7 +1,4 @@
-import React from 'react';
-
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
+import { Layout } from '../layout';
 
 import { MainAbout } from './components/main-about';
 import { MainBenefits } from './components/main-benefits';
@@ -12,17 +9,13 @@ import { MainTeachers } from './components/main-teachers';
 
 export const MainPageContent = () => {
   return (
-    <>
-      <Header />
-      <main>
-        <MainPromo />
-        <MainAbout />
-        <MainBenefits />
-        <MainTeachers />
-        <MainPackages />
-        <MainForm />
-      </main>
-      <Footer />
-    </>
+    <Layout>
+      <MainPromo />
+      <MainAbout />
+      <MainBenefits />
+      <MainTeachers />
+      <MainPackages />
+      <MainForm />
+    </Layout>
   );
 };
