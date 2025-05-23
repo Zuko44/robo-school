@@ -1,5 +1,4 @@
 import { Layout } from '../layout';
-
 import { MainAbout } from './components/main-about';
 import { MainBenefits } from './components/main-benefits';
 import { MainForm } from './components/main-form';

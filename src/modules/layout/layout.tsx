@@ -1,7 +1,9 @@
-import { Header } from '@/modules/layout/components/header';
+import type { PropsWithChildren } from 'react';
+
 import { Footer } from '@/modules/layout/components/footer';
+import { Header } from '@/modules/layout/components/header';
+
 import styles from './layout.module.scss';
-import { PropsWithChildren, ReactNode } from 'react';
 
 export const Layout = ({ children }: PropsWithChildren<{}>) => {
   return (
