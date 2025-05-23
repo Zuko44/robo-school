@@ -5,7 +5,7 @@ import { Header } from '@/modules/layout/components/header';
 
 import styles from './layout.module.scss';
 
-export const Layout = ({ children }: PropsWithChildren<{}>) => {
+export const Layout = ({ children }: PropsWithChildren) => {
   return (
     <div className={styles.layout}>
       <Header />
