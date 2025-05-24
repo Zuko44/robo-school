@@ -1,6 +1,6 @@
 import { Container } from '@/components/container';
-import { Logo } from '@/components/logo';
-import { PhoneCallButton } from '@/components/phone-call-button';
+import { Logo } from '@/modules/layout/components/logo';
+import { PhoneCallButton } from '@/modules/layout/components/phone-call-button';
 
 import styles from './footer.module.scss';
 
