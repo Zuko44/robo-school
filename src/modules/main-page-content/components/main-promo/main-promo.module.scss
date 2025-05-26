@@ -9,6 +9,19 @@
   background-color: $bg-color-tertiary;
   color: $text-color-secondary;
 
+  .buttonPromo {
+    width: 260px;
+    height: auto;
+    font-size: 18px;
+    margin-top: 50px;
+    padding: 25px 54px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -71,6 +84,12 @@
         bottom: 50px;
         width: 450px;
       }
+    }
+
+    .buttonPromo {
+      width: 300px;
+      position: absolute;
+      bottom: 40px;
     }
   }
 }
