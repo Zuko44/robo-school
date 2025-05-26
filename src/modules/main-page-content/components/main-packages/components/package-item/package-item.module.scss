@@ -7,7 +7,6 @@
   flex-basis: 360px;
   border: 2px solid $bg-color-quaternary;
   border-radius: 20px;
-  box-sizing: border-box;
   padding: 40px;
   transition:
     transform 0.2s ease,
@@ -76,16 +75,8 @@
   }
 
   .packageButton {
-    width: auto;
     max-width: 100%;
-    height: auto;
-    padding: 25px 54px;
     margin-top: auto;
-    border-radius: 5px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
   }
 }
 
@@ -112,6 +103,10 @@
     .button {
       font-size: 16px;
       margin-top: 25px;
+    }
+
+    .packageButton {
+      width: 100%;
     }
   }
 }

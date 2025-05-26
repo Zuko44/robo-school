@@ -1,9 +1,17 @@
 @import '@/styles/variables.scss';
 
 .button {
-  cursor: pointer;
-  box-sizing: border-box;
-  font-family: $font-default;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  height: auto;
+  padding: 25px 54px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .primary {
@@ -11,7 +19,7 @@
   background-color: $controls-bg-primary;
 
   &:hover {
-    background-color: darken($controls-bg-primary, 5%);
+    background-color: $controls-bg-primary-hover;
   }
 }
 
@@ -20,16 +28,16 @@
   background-color: $controls-bg-secondary;
 
   &:hover {
-    background-color: lighten($controls-bg-secondary, 5%);
+    background-color: $controls-bg-secondary-hover;
   }
 }
 
 .ghost {
   background-color: transparent;
   color: $controls-color-secondary;
-  border: 1px solid $controls-color-secondary;
+  border: 1px solid $border-color-ghost;
 
   &:hover {
-    background-color: rgba($controls-color-secondary, 0.1);
+    background-color: $controls-bg-ghost-hover;
   }
 }
