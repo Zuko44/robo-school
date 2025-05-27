@@ -9,23 +9,25 @@
       font-size: 50px;
       font-weight: 600;
     }
-  }
-}
-
-@media (max-width: 1024px) {
-  .profit {
-    padding: 50px 0;
-
-    .wrapper {
-      .title {
-        text-align: center;
-      }
+    .items {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
     }
   }
 }
 
-@media (max-width: 768px) {
-  .profit {
-    padding: 40px 0;
+@media (max-width: 1200px) {
+  .benefits {
+    .wrapper {
+      .items {
+        justify-content: center;
+      }
+      .title {
+        text-align: center;
+      }
+    }
   }
 }
