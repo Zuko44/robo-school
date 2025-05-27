@@ -8,9 +8,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-function getButtonClassNames(variant: string, extra?: string) {
-  return [styles.button, styles[variant], extra].filter(Boolean).join(' ');
-}
+const createButtonVariant = (variant: string): string => {
+  switch (variant) {
+    case 'primary':
+      return `${styles.button} ${styles.primary}`;
+    case 'secondary':
+      return `${styles.button} ${styles.secondary}`;
+    case 'ghost':
+      return `${styles.button} ${styles.ghost}`;
+    default:
+      return styles.button;
+  }
+};
 
 export const Button = ({
   variant = 'primary',
@@ -18,8 +27,11 @@ export const Button = ({
   children,
   ...rest
 }: ButtonProps) => {
+  const baseClass = createButtonVariant(variant);
+  const fullClassName = additionalClassname ? `${baseClass} ${additionalClassname}` : baseClass;
+
   return (
-    <button className={getButtonClassNames(variant, additionalClassname)} {...rest}>
+    <button className={fullClassName} {...rest}>
       {children}
     </button>
   );

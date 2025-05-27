@@ -18,13 +18,12 @@ $bg-color-tertiary: $primary-color;
 $bg-color-quaternary: $tertiary-color;
 $bg-color-accent: $accent-color;
 
-$border-color-ghost: $accent-color;
+$border-color-base: $accent-color;
 
 $controls-bg-primary: $accent-color;
 $controls-bg-primary-hover: darken($accent-color, 5%);
 $controls-bg-secondary: $secondary-color;
 $controls-bg-secondary-hover: lighten($secondary-color, 5%);
-$controls-bg-ghost-hover: #d520271a;
 $controls-bg-tertiary: $primary-color;
 $controls-color-primary: $secondary-color;
 $controls-color-secondary: $accent-color;
