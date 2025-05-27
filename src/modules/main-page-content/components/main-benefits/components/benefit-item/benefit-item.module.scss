@@ -1,31 +1,14 @@
 @use '@/styles/variables.scss' as *;
 
 .benefitItem {
-  max-width: 360px;
+  flex-basis: 360px;
   text-align: left;
-  padding-top: 60px;
 
   .title {
     font-size: 24px;
     font-weight: 600;
-    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 6px;
-  }
-
-  .tooltip {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    background-color: $bg-color-quaternary;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: 500;
-    user-select: none;
-    transform: translate(+5%, -10px);
   }
 
   .description {
@@ -33,6 +16,7 @@
     font-weight: 400;
     color: $text-color-primary;
     line-height: 160%;
+    padding-top: 20px;
   }
 }
 

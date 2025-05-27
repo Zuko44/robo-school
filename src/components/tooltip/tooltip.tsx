@@ -1,29 +1,36 @@
 import { type ReactNode, useRef, useState } from 'react';
 
 import styles from './tooltip.module.scss';
+import { TooltipIcon } from '@/assets/icons/TooltipIcon';
 
 interface TooltipProps {
   text: string;
-  children: ReactNode;
+  icon?: ReactNode;
 }
 
-export const Tooltip = ({ text, children }: TooltipProps) => {
-  const [visible, setVisible] = useState(false);
+export const Tooltip = ({ text, icon }: TooltipProps) => {
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setVisible(true);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsTooltipVisible(true);
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setVisible(false), 150);
+    timeoutRef.current = setTimeout(() => setIsTooltipVisible(false), 150);
   };
 
   return (
-    <div className={styles.wrapper} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      {children}
-      {visible && <span className={styles.tooltip}>{text}</span>}
-    </div>
+    <span
+      className={styles.componentWrapper}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {icon || <TooltipIcon />}
+      {text && isTooltipVisible && <span className={styles.tooltip}>{text}</span>}
+    </span>
   );
 };

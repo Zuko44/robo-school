@@ -8,11 +8,7 @@ export const BenefitItem = ({ subtitle, description, tooltip }: BenefitItemType)
     <div className={styles.benefitItem}>
       <div className={styles.title}>
         {subtitle}
-        {tooltip && (
-          <Tooltip text={tooltip}>
-            <span className={styles.tooltip}>i</span>
-          </Tooltip>
-        )}
+        {tooltip && <Tooltip text={tooltip} />}
       </div>
       <p className={styles.description}>{description}</p>
     </div>
