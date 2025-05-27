@@ -73,6 +73,11 @@
     font-size: 18px;
     margin-top: 20px;
   }
+
+  .packageButton {
+    max-width: 100%;
+    margin-top: auto;
+  }
 }
 
 @media (max-width: 768px) {
@@ -98,6 +103,10 @@
     .button {
       font-size: 16px;
       margin-top: 25px;
+    }
+
+    .packageButton {
+      width: 100%;
     }
   }
 }
