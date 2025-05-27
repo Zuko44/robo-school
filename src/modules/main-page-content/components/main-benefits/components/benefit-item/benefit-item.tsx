@@ -1,6 +1,5 @@
-import type { BenefitItemType } from '@/types/benefits';
-
 import { Tooltip } from '@/components/tooltip';
+import type { BenefitItemType } from '@/types/benefits';
 
 import styles from './benefit-item.module.scss';
 
