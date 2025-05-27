@@ -1,0 +1,30 @@
+@use '@/styles/variables.scss' as *;
+
+.benefitItem {
+  flex-basis: 360px;
+  text-align: left;
+
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  .description {
+    font-size: 18px;
+    font-weight: 400;
+    color: $text-color-primary;
+    line-height: 160%;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefitItem {
+    text-align: center;
+    .title {
+      justify-content: center;
+    }
+  }
+}
