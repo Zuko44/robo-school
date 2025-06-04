@@ -1,7 +1,8 @@
 import { type ReactNode, useRef, useState } from 'react';
 
-import styles from './tooltip.module.scss';
 import { TooltipIcon } from '@/assets/icons/TooltipIcon';
+
+import styles from './tooltip.module.scss';
 
 interface TooltipProps {
   text: string;
@@ -29,7 +30,7 @@ export const Tooltip = ({ text, icon }: TooltipProps) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {icon || <TooltipIcon />}
+      {icon || <TooltipIcon className={styles.icon} />}
       {text && isTooltipVisible && <span className={styles.tooltip}>{text}</span>}
     </span>
   );

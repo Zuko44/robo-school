@@ -8,10 +8,8 @@
 .tooltip {
   position: absolute;
   bottom: 130%;
-  // top: 100%;
   left: 50%;
-  // transform: translateX(-50%);
-  transform: translateX(-50%) translateY(8px);
+  transform: translate(-50%);
   background-color: $secondary-color;
   color: $text-color-primary;
   padding: 15px 20px;
@@ -26,27 +24,23 @@
 .tooltip::after {
   content: '';
   position: absolute;
-  // bottom: 100%;
   top: 0;
   left: 50%;
-  // transform: translateX(-50%);
   transform: translate(-50%, -100%);
   border: 6px solid transparent;
 }
 
-// .icon {
-//   display: inline-flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 24px;
-//   height: 24px;
-//   background-color: $bg-color-quaternary;
-//   border-radius: 50%;
-//   font-size: 12px;
-//   font-weight: 500;
-//   user-select: none;
-//   transform: translate(+5%, -10px);
-// }
+.icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background-color: $bg-color-quaternary;
+  border-radius: 50%;
+  user-select: none;
+  transform: translate(+40%, -5px);
+}
 
 @media (max-width: 375px) {
   .tooltip {
