@@ -1,3 +1,4 @@
+import { Button } from '@/components/button/button';
 import type { PackageItemType } from '@/types/packages';
 
 import styles from './package-item.module.scss';
@@ -14,6 +15,7 @@ export const PackageItem = ({ package: { id, title, price, description } }: Pack
         <span className={styles.packagePrice}>{price}</span>
         <span className={styles.packageDescription}>{description}</span>
       </div>
+      <Button additionalClassname={styles.packageButton}>Оставить заявку</Button>
     </div>
   );
 };

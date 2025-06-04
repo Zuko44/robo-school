@@ -1,0 +1,52 @@
+@import '@/styles/variables.scss';
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 54px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  user-select: none;
+
+  background-color: $bg-color-tertiary;
+  color: $text-color-secondary;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.primary {
+  color: $controls-color-primary;
+  background-color: $controls-bg-primary;
+
+  &:hover {
+    background-color: $controls-bg-primary-hover;
+  }
+}
+
+.secondary {
+  color: $controls-color-secondary;
+  background-color: $controls-bg-secondary;
+
+  &:hover {
+    background-color: $controls-bg-secondary-hover;
+  }
+}
+
+.ghost {
+  background-color: transparent;
+  color: $controls-color-secondary;
+  border: none;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

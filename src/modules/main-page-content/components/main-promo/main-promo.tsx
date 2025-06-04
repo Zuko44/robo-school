@@ -1,4 +1,5 @@
 import promoGirlImg from '@/assets/images/student.png';
+import { Button } from '@/components/button/button';
 import { Container } from '@/components/container';
 
 import styles from './main-promo.module.scss';
@@ -15,6 +16,7 @@ export const MainPromo = () => {
             </div>
           </div>
           <img className={styles.img} src={promoGirlImg} alt="promo" />
+          <Button additionalClassname={styles.buttonPromo}>Записаться на курс</Button>
         </div>
       </Container>
     </section>
