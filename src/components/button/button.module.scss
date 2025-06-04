@@ -6,7 +6,7 @@
   align-items: center;
   padding: 25px 54px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -44,6 +44,7 @@
   background-color: transparent;
   color: $controls-color-secondary;
   border: none;
+  padding: 0;
 
   &:hover {
     text-decoration: underline;
