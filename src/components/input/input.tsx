@@ -1,5 +1,6 @@
-import { InputHTMLAttributes, DetailedHTMLProps, ChangeEvent } from 'react';
-import { UseFormRegister, FieldValues, Path } from 'react-hook-form';
+import type { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import type { FieldValues, Path, UseFormRegister } from 'react-hook-form';
+
 import styles from './input.module.scss';
 
 type CommonProps = {
@@ -79,6 +80,7 @@ export function Input<T extends FieldValues>({
       <input
         id={name}
         name={name}
+        placeholder={placeholder}
         className={buildInputClassname()}
         {...dynamicPropsObject}
         {...rest}

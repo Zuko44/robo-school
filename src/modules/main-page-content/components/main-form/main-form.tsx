@@ -1,11 +1,12 @@
-import { Container } from '@/components/container';
-
-import styles from './main-form.module.scss';
-import { Input } from '@/components/input';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
 import { Button } from '@/components/button';
+import { Container } from '@/components/container';
+import { Input } from '@/components/input';
 import { formSchema } from '@/helpers/schema';
+
+import styles from './main-form.module.scss';
 
 type FormValues = {
   name: string;
