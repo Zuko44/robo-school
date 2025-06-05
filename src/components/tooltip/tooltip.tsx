@@ -1,4 +1,4 @@
-import { type ReactNode, useRef, useState } from 'react';
+import { type ReactNode, useState } from 'react';
 
 import { TooltipIcon } from '@/assets/icons/TooltipIcon';
 
@@ -9,29 +9,26 @@ interface TooltipProps {
   icon?: ReactNode;
 }
 
-export const Tooltip = ({ text, icon }: TooltipProps) => {
+export const Tooltip = ({ text, icon = <TooltipIcon /> }: TooltipProps) => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
     setIsTooltipVisible(true);
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setIsTooltipVisible(false), 150);
+    setIsTooltipVisible(false);
   };
 
   return (
     <span
-      className={styles.componentWrapper}
+      className={styles.tooltipWrapper}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {icon || <TooltipIcon className={styles.icon} />}
-      {text && isTooltipVisible && <span className={styles.tooltip}>{text}</span>}
+      <span className={styles.iconWrapper}>{icon}</span>
+
+      {isTooltipVisible && <span className={styles.tooltip}>{text}</span>}
     </span>
   );
 };

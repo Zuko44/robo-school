@@ -1,50 +1,49 @@
 @use '@/styles/variables.scss' as *;
 
-.componentWrapper {
+.tooltipWrapper {
   position: relative;
-  display: inline-block;
-}
-
-.tooltip {
-  position: absolute;
-  bottom: 130%;
-  left: 50%;
-  transform: translate(-50%);
-  background-color: $secondary-color;
-  color: $text-color-primary;
-  padding: 15px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 400;
-  box-shadow: 0 4px 12px #0000001a;
-  white-space: nowrap;
-  z-index: 100;
-}
-
-.tooltip::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  border: 6px solid transparent;
-}
-
-.icon {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 24px;
-  background-color: $bg-color-quaternary;
-  border-radius: 50%;
-  user-select: none;
-  transform: translate(+40%, -5px);
+  justify-content: center;
+  padding-top: 10px;
+
+  .tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 0;
+    background-color: $secondary-color;
+    color: $text-color-primary;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    box-shadow: 0 4px 12px $shadow-default;
+    width: max-content;
+    max-width: 300px;
+    overflow-wrap: break-word;
+    z-index: 100;
+  }
+
+  .iconWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    transform: translateY(-7px);
+    background-color: $bg-color-quaternary;
+    border-radius: 50%;
+    user-select: none;
+
+    svg {
+      width: 2.78px;
+      height: 16.88px;
+    }
+  }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 768px) {
   .tooltip {
-    left: 50%;
     transform: translateX(-70%);
   }
 }
