@@ -9,7 +9,7 @@
 
   .tooltip {
     position: absolute;
-    bottom: 110%;
+    bottom: 105%;
     left: 0;
     background-color: $secondary-color;
     color: $text-color-primary;
@@ -30,7 +30,7 @@
     justify-content: center;
     width: 24px;
     height: 24px;
-    transform: translateY(-7px);
+    transform: translateY(-5px);
     background-color: $bg-color-quaternary;
     border-radius: 50%;
     user-select: none;
