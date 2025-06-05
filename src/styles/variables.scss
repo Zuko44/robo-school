@@ -22,8 +22,9 @@ $border-color-primary: $accent-color;
 
 $controls-bg-primary: $accent-color;
 $controls-bg-primary-hover: darken($accent-color, 5%);
-$controls-bg-secondary: $secondary-color;
-$controls-bg-secondary-hover: lighten($secondary-color, 5%);
+$controls-bg-secondary: $primary-color;
+$controls-bg-secondary-hover: lighten($primary-color, 5%);
 $controls-bg-tertiary: $primary-color;
 $controls-color-primary: $secondary-color;
-$controls-color-secondary: $accent-color;
+$controls-color-secondary: $secondary-color;
+$controls-color-text: $accent-color;
