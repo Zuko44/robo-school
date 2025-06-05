@@ -49,12 +49,14 @@ export const MainForm = () => {
             <Input
               register={register}
               name="phone"
+              type="tel"
               placeholder="Телефон"
               error={errors.phone?.message}
             />
             <Input
               register={register}
               name="email"
+              type="email"
               placeholder="E-mail"
               error={errors.email?.message}
             />

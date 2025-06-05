@@ -1,15 +1,13 @@
 @import '@/styles/variables.scss';
 
 .wrapper {
-  max-width: 500px;
+  width: 100%;
   position: relative;
-  box-sizing: border-box;
-  background: $bg-color-secondary;
-  color: $text-color-primary;
+  background: $controls-bg-input-primary;
+  color: $controls-color-input-primary;
   padding: 19px 0px 19px 20px;
 
   border-radius: 5px;
-  margin-bottom: 10px;
 
   .visually-hidden {
     position: absolute;
@@ -21,14 +19,14 @@
   }
 
   .error {
-    color: $controls-color-text;
+    color: $controls-color-error;
     font-size: 10px;
     position: absolute;
     top: 5px;
     left: 20px;
   }
 
-  input {
+  .input {
     width: 100%;
   }
 }

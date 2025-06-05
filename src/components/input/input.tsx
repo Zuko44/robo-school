@@ -76,8 +76,6 @@ export function Input<T extends FieldValues>({
         {label}
       </label>
 
-      {Boolean(error) && <span className={styles.error}>{error}</span>}
-
       <input
         id={name}
         name={name}
@@ -86,6 +84,8 @@ export function Input<T extends FieldValues>({
         {...dynamicPropsObject}
         {...rest}
       />
+
+      {Boolean(error) && <span className={styles.error}>{error}</span>}
     </div>
   );
 }

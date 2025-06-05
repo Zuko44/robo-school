@@ -39,11 +39,14 @@
     }
 
     .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       width: 100%;
       max-width: 500px;
 
       .buttonMain {
-        width: 100%;
+        padding: 19px 0;
       }
     }
   }
