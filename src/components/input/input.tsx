@@ -85,7 +85,11 @@ export function Input<T extends FieldValues>({
         {...rest}
       />
 
-      {Boolean(error) && <span className={styles.error}>{error}</span>}
+      {Boolean(error) && (
+        <span id={`${name}-error`} className={styles.error}>
+          {error}
+        </span>
+      )}
     </div>
   );
 }

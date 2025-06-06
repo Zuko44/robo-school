@@ -45,6 +45,8 @@ export const MainForm = () => {
               name="name"
               placeholder="Введите имя"
               error={errors.name?.message}
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? `${name}-error` : undefined}
             />
             <Input
               register={register}
@@ -52,6 +54,8 @@ export const MainForm = () => {
               type="tel"
               placeholder="Телефон"
               error={errors.phone?.message}
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? `${name}-error` : undefined}
             />
             <Input
               register={register}
@@ -59,6 +63,8 @@ export const MainForm = () => {
               type="email"
               placeholder="E-mail"
               error={errors.email?.message}
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? `${name}-error` : undefined}
             />
 
             <Button type="submit" variant="secondary" additionalClassname={styles.buttonMain}>
