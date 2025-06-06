@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import styles from './button.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'text';
   additionalClassname?: string;
   children: ReactNode;
 }
@@ -14,8 +14,8 @@ const createButtonVariant = (variant: string): string => {
       return `${styles.button} ${styles.primary}`;
     case 'secondary':
       return `${styles.button} ${styles.secondary}`;
-    case 'ghost':
-      return `${styles.button} ${styles.ghost}`;
+    case 'text':
+      return `${styles.button} ${styles.text}`;
     default:
       return styles.button;
   }
