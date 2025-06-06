@@ -9,7 +9,7 @@
 
   .tooltip {
     position: absolute;
-    bottom: 105%;
+    bottom: 100%;
     left: 0;
     background-color: $secondary-color;
     color: $text-color-primary;
@@ -34,11 +34,6 @@
     background-color: $bg-color-quaternary;
     border-radius: 50%;
     user-select: none;
-
-    svg {
-      width: 2.78px;
-      height: 16.88px;
-    }
   }
 }
 

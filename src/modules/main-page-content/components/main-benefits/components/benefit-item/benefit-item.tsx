@@ -3,7 +3,13 @@ import type { BenefitItemType } from '@/types/benefits';
 
 import styles from './benefit-item.module.scss';
 
-export const BenefitItem = ({ subtitle, description, tooltip }: BenefitItemType) => {
+interface BenefitItemProps {
+  benefitItem: BenefitItemType;
+}
+
+export const BenefitItem = ({ benefitItem }: BenefitItemProps) => {
+  const { subtitle, description, tooltip } = benefitItem;
+
   return (
     <div className={styles.benefitItem}>
       <div className={styles.title}>
