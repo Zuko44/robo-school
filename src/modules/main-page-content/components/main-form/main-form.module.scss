@@ -1,46 +1,63 @@
 @use '@/styles/variables.scss' as *;
 
 .course {
+  position: relative;
   background-color: $bg-color-accent;
-  background-image: url('./images/percent.png');
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-image: none;
+  position: relative;
   color: $text-color-secondary;
   padding: 87px 0;
   display: flex;
   flex-wrap: wrap;
 
-  .inner {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100px;
+    background-image: url('./images/percent.png');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .wrapper {
     display: flex;
+    padding: 0 55px;
+    gap: 64px;
 
-    .wrapper {
+    .text {
       display: flex;
-      padding: 0 55px;
-      gap: 60px;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 20px;
+      flex: 1 1 400px;
 
-      .text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+      .title {
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      .description {
+        font-size: 20px;
         margin-top: 20px;
-
-        .title {
-          font-size: 36px;
-          font-weight: 600;
-          line-height: 1.4;
-        }
-
-        .description {
-          font-size: 20px;
-          margin-top: 20px;
-        }
       }
     }
 
     .form {
       display: flex;
       flex-direction: column;
+      flex: 1 0 500px;
       gap: 10px;
       width: 100%;
       max-width: 500px;
@@ -56,20 +73,18 @@
   .course {
     padding: 40px 0;
 
-    .inner {
-      flex-wrap: wrap;
+    .wrapper {
+      margin: 40px auto 0px;
+      padding: 0 30px;
+      gap: 20px;
 
-      .wrapper {
-        padding: 0 30px;
-        gap: 20px;
-
-        .text {
-          margin-top: 0;
-        }
+      .text {
+        margin-top: 0;
+        flex: 0 1 auto;
       }
 
       .form {
-        margin: 40px auto 0px;
+        flex: 0 1 auto;
       }
     }
   }

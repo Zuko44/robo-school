@@ -71,7 +71,7 @@ export function Input<T extends FieldValues>({
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.inputWrapper}>
       <label htmlFor={name} className={styles.visuallyHidden}>
         {label}
       </label>
