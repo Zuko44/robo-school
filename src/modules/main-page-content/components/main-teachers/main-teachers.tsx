@@ -1,14 +1,16 @@
 import { useContext, useEffect, useRef } from 'react';
+import type { Swiper as SwiperType } from 'swiper';
 import { Scrollbar } from 'swiper/modules';
-import { Container } from '@/components/container';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { MainPageContext } from '@/store/main-page';
 import 'swiper/css';
-import styles from './main-teachers.module.scss';
+
+import { Container } from '@/components/container';
+import { SliderNavigation } from '@/components/slider-navigation';
 import { TeacherItem } from '@/components/teacher-item/teacher-item';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import type { Swiper as SwiperType } from 'swiper';
-import { SliderNavigation } from '@/components/slider-navigation';
+import { MainPageContext } from '@/store/main-page';
+
+import styles from './main-teachers.module.scss';
 
 export const MainTeachers = () => {
   const { teachersList } = useContext(MainPageContext);

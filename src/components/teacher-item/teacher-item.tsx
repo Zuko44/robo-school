@@ -1,7 +1,8 @@
-import type { TeacherListType } from '@/types/teacher';
-import styles from './teacher-item.module.scss';
 import { teachersImages } from '@/assets/images/index';
 import { Button } from '@/components/button/button';
+import type { TeacherListType } from '@/types/teacher';
+
+import styles from './teacher-item.module.scss';
 
 export const TeacherItem = ({ name, imageSrc, description }: TeacherListType) => {
   const images = teachersImages[imageSrc as keyof typeof teachersImages];
