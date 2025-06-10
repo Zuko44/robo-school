@@ -1,6 +1,8 @@
+import type { MutableRefObject } from 'react';
+
 import { ArrowLeftIcon } from '@/assets/icons/ArrowLeftIcon';
 import { ArrowRightIcon } from '@/assets/icons/ArrowRightIcon';
-import { MutableRefObject } from 'react';
+
 import styles from './slider-navigation.module.scss';
 
 interface ControlsProps {
