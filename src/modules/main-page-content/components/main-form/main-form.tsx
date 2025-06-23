@@ -29,6 +29,10 @@ export const MainForm = () => {
     reset();
   };
 
+  const handleFormSubmitBtnClick = () => {
+    void handleSubmit(onSubmit)();
+  };
+
   return (
     <section className={styles.course}>
       <Container>
@@ -41,10 +45,9 @@ export const MainForm = () => {
             <Input
               register={register}
               name="name"
+              type="text"
               placeholder="Введите имя"
               error={errors.name?.message}
-              aria-invalid={Boolean(errors.name)}
-              aria-describedby={errors.name ? 'name-error' : undefined}
             />
             <Input
               register={register}
@@ -52,8 +55,6 @@ export const MainForm = () => {
               type="tel"
               placeholder="Телефон"
               error={errors.phone?.message}
-              aria-invalid={Boolean(errors.phone)}
-              aria-describedby={errors.phone ? 'phone-error' : undefined}
             />
             <Input
               register={register}
@@ -61,15 +62,13 @@ export const MainForm = () => {
               type="email"
               placeholder="E-mail"
               error={errors.email?.message}
-              aria-invalid={Boolean(errors.email)}
-              aria-describedby={errors.email ? 'email-error' : undefined}
             />
 
             <Button
               type="button"
               variant="secondary"
               additionalClassname={styles.buttonMain}
-              onClick={() => handleSubmit(onSubmit)()}
+              onClick={handleFormSubmitBtnClick}
             >
               Оставить заявку
             </Button>
