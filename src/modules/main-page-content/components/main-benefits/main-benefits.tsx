@@ -1,9 +1,10 @@
 import { Container } from '@/components/container';
 import type { BenefitItemsType } from '@/types/benefits';
 
+import { BenefitItem } from './components/benefit-item';
+
 import styles from './main-benefits.module.scss';
 
-// eslint-disable-next-line no-unused-vars
 const benefitItems: BenefitItemsType = [
   {
     id: 1,
@@ -32,7 +33,11 @@ export const MainBenefits = () => {
       <Container>
         <div className={styles.wrapper}>
           <h2 className={styles.title}>Что вы получите после курса</h2>
-          <div className={styles.items}>{/*Здесь должны быть отрисованы элементы*/}</div>
+          <div className={styles.items}>
+            {benefitItems.map((item) => (
+              <BenefitItem benefitItem={item} key={item.id} />
+            ))}
+          </div>
         </div>
       </Container>
     </section>
