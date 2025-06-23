@@ -1,0 +1,36 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 360px;
+  width: 100%;
+
+  .image {
+    width: 100%;
+    aspect-ratio: 360 / 500;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+  }
+
+  .content {
+    margin-top: 20px;
+
+    .name {
+      font-size: 24px;
+      font-weight: 600;
+      color: $text-color-primary;
+    }
+
+    .description {
+      margin-top: 10px;
+      font-size: 18px;
+      color: $text-color-primary;
+    }
+
+    .button {
+      margin-top: 20px;
+    }
+  }
+}
