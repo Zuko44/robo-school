@@ -1,0 +1,32 @@
+@import '@/styles/variables.scss';
+
+.inputWrapper {
+  width: 100%;
+  position: relative;
+  background: $controls-bg-input-primary;
+  color: $controls-color-input-primary;
+  padding: 19px 0px 19px 20px;
+
+  border-radius: 5px;
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  .error {
+    color: $controls-color-error;
+    font-size: 10px;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+  }
+
+  .input {
+    width: 100%;
+  }
+}

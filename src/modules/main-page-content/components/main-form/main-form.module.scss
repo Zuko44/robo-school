@@ -3,22 +3,25 @@
 .course {
   background-color: $bg-color-accent;
   background-image: url('./images/percent.png');
-  background-position: bottom;
+  background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto 100px;
   color: $text-color-secondary;
   padding: 87px 0;
+  display: flex;
+  flex-wrap: wrap;
 
   .wrapper {
     display: flex;
     padding: 0 55px;
-    gap: 60px;
+    gap: 64px;
 
     .text {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       margin-top: 20px;
+      flex: 1 1 400px;
 
       .title {
         font-size: 36px;
@@ -31,6 +34,19 @@
         margin-top: 20px;
       }
     }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 500px;
+      gap: 10px;
+      width: 100%;
+      max-width: 500px;
+
+      .buttonMain {
+        padding: 19px 0;
+      }
+    }
   }
 }
 
@@ -39,11 +55,17 @@
     padding: 40px 0;
 
     .wrapper {
+      margin: 40px auto 0px;
       padding: 0 30px;
       gap: 20px;
 
       .text {
         margin-top: 0;
+        flex: 0 1 auto;
+      }
+
+      .form {
+        flex: 0 1 auto;
       }
     }
   }
@@ -51,6 +73,8 @@
 
 @media (max-width: 768px) {
   .course {
+    background-image: none;
+
     .wrapper {
       flex-direction: column;
       align-items: center;
