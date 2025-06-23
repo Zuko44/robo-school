@@ -35,7 +35,7 @@ export const MainBenefits = () => {
           <h2 className={styles.title}>Что вы получите после курса</h2>
           <div className={styles.items}>
             {benefitItems.map((item) => (
-              <BenefitItem benefitItem={item} key={item.id} {...item} />
+              <BenefitItem benefitItem={item} key={item.id} />
             ))}
           </div>
         </div>
