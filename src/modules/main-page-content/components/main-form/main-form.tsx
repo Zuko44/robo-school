@@ -29,10 +29,6 @@ export const MainForm = () => {
     reset();
   };
 
-  const handleFormSubmitBtnClick = () => {
-    void handleSubmit(onSubmit)();
-  };
-
   return (
     <section className={styles.course}>
       <Container>
@@ -64,12 +60,7 @@ export const MainForm = () => {
               error={errors.email?.message}
             />
 
-            <Button
-              type="button"
-              variant="secondary"
-              additionalClassname={styles.buttonMain}
-              onClick={handleFormSubmitBtnClick}
-            >
+            <Button type="submit" variant="secondary" additionalClassname={styles.buttonMain}>
               Оставить заявку
             </Button>
           </form>
