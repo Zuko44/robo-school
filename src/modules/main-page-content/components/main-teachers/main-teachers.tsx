@@ -5,19 +5,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import { Container } from '@/components/container';
-import { SliderNavigation } from '@/components/slider-navigation';
-import { TeacherItem } from '@/components/teacher-item/teacher-item';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { MainPageContext } from '@/store/main-page';
+
+import { SliderNavigation } from './components/slider-navigation';
+import { TeacherItem } from './components/teacher-item';
 
 import styles from './main-teachers.module.scss';
 
 export const MainTeachers = () => {
   const { teachersList } = useContext(MainPageContext);
+
   const swiperRef = useRef<SwiperType | null>(null);
   const scrollbarRef = useRef<HTMLDivElement | null>(null);
-  const { width } = useWindowSize();
-  const isMobile = width <= 768;
+  const { isMobile } = useWindowSize();
 
   useEffect(() => {
     if (swiperRef.current) {
@@ -31,7 +32,9 @@ export const MainTeachers = () => {
   };
 
   const handleSlide = (direction: 'next' | 'prev') => () => {
-    if (!swiperRef.current) return;
+    if (!swiperRef.current) {
+      return;
+    }
     direction === 'next' ? swiperRef.current.slideNext() : swiperRef.current.slidePrev();
   };
 
@@ -50,7 +53,7 @@ export const MainTeachers = () => {
           >
             {teachersList.map((teacher) => (
               <SwiperSlide key={teacher.id} className={styles.swiperSlide}>
-                <TeacherItem {...teacher} />
+                <TeacherItem teacherItem={teacher} />
               </SwiperSlide>
             ))}
           </Swiper>

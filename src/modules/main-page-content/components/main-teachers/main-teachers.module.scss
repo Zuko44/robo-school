@@ -8,6 +8,10 @@
       font-size: 50px;
       font-weight: 600;
     }
+
+    .list {
+      margin-top: 60px;
+    }
   }
 }
 
@@ -28,6 +32,17 @@
     .wrapper {
       .title {
         font-size: 30px;
+      }
+
+      .list {
+        padding: 0 10px;
+        width: calc(100% + 20px);
+        margin-left: -10px;
+      }
+
+      .swiperSlide {
+        width: 220px;
+        flex: 0 0 220px;
       }
     }
   }

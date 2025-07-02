@@ -4,14 +4,19 @@ import type { TeacherListType } from '@/types/teacher';
 
 import styles from './teacher-item.module.scss';
 
-export const TeacherItem = ({ name, imageSrc, description }: TeacherListType) => {
-  const images = teachersImages[imageSrc as keyof typeof teachersImages];
+interface TeacherItemProps {
+  teacherItem: TeacherListType;
+}
+
+export const TeacherItem = ({ teacherItem }: TeacherItemProps) => {
+  const { name, imageSrc, description } = teacherItem;
+  const imageSource = teachersImages[imageSrc as keyof typeof teachersImages];
 
   return (
     <div className={styles.card}>
-      <img src={images} alt={name} className={styles.image} />
+      <img src={imageSource} alt={name} className={styles.image} />
       <div className={styles.content}>
-        <h3 className={styles.name}>{name}</h3>
+        <p className={styles.name}>{name}</p>
         <p className={styles.description}>{description}</p>
         <Button variant="text" additionalClassname={styles.button}>
           Подробнее

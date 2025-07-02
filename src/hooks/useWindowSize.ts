@@ -15,8 +15,13 @@ export const useWindowSize = () => {
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
-  return windowSize;
+  const isMobile = windowSize.width <= 768;
+
+  return { ...windowSize, isMobile };
 };
