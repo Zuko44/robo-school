@@ -16,12 +16,22 @@ export const SliderNavigation = ({ scrollbarRef, onPrev, onNext }: ControlsProps
     <div className={styles.navigations}>
       <div className={`${styles.scrollbar} swiper-scrollbar`} ref={scrollbarRef} />
       <div className={styles.navigationsArrows}>
-        <div className={styles.navigationsArrow} onClick={onPrev}>
+        <button
+          type="button"
+          className={styles.navigationsArrow}
+          onClick={onPrev}
+          aria-label="previous slide"
+        >
           <ArrowLeftIcon />
-        </div>
-        <div className={styles.navigationsArrow} onClick={onNext}>
+        </button>
+        <button
+          type="button"
+          className={styles.navigationsArrow}
+          onClick={onNext}
+          aria-label="next slide"
+        >
           <ArrowRightIcon />
-        </div>
+        </button>
       </div>
     </div>
   );
