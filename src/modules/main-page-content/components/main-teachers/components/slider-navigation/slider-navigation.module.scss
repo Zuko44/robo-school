@@ -1,0 +1,51 @@
+@use '@/styles/variables.scss' as *;
+
+.navigations {
+  margin-top: 77px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .scrollbar {
+    position: relative;
+    width: 360px;
+    height: 5px;
+    border-radius: 40px;
+    background: $controls-bg-scrollbar-color;
+
+    :global(.swiper-scrollbar-drag) {
+      background-color: $controls-bg-secondary;
+      cursor: grab;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 5px;
+      border-radius: 40px;
+    }
+  }
+
+  .navigationsArrows {
+    gap: 10px;
+    display: flex;
+
+    .navigationsArrow {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navigations {
+    margin: 40px 0 60px;
+
+    .scrollbar {
+      width: 100%;
+    }
+
+    .navigationsArrows {
+      display: none;
+    }
+  }
+}
