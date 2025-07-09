@@ -14,7 +14,7 @@
     background: $controls-bg-scrollbar-color;
 
     :global(.swiper-scrollbar-drag) {
-      background-color: $controls-bg-tertiary;
+      background-color: $controls-bg-secondary;
       cursor: grab;
       position: absolute;
       top: 0;

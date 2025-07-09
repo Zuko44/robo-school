@@ -31,11 +31,17 @@ export const MainTeachers = () => {
     swiperRef.current = swiper;
   };
 
-  const handleSlide = (direction: 'next' | 'prev') => () => {
+  const createSliderButtonHandler = (direction: 'next' | 'prev') => () => {
     if (!swiperRef.current) {
       return;
     }
-    direction === 'next' ? swiperRef.current.slideNext() : swiperRef.current.slidePrev();
+
+    if (direction === 'next') {
+      swiperRef.current.slideNext();
+      return;
+    }
+
+    swiperRef.current.slidePrev();
   };
 
   return (
@@ -60,8 +66,8 @@ export const MainTeachers = () => {
 
           <SliderNavigation
             scrollbarRef={scrollbarRef}
-            onPrev={handleSlide('prev')}
-            onNext={handleSlide('next')}
+            onPrev={createSliderButtonHandler('prev')}
+            onNext={createSliderButtonHandler('next')}
           />
         </div>
       </Container>
