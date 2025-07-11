@@ -1,0 +1,53 @@
+@use '@/styles/variables.scss' as *;
+@use 'sass:color';
+
+.select {
+  position: relative;
+  display: inline-block;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 300px;
+
+  .selectBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid $controls-bg-secondary;
+    padding: 10px;
+    background-color: $accent-color;
+    color: $text-color-secondary;
+    font-size: 16px;
+    gap: 10px;
+
+    &:hover {
+      background-color: lighten($accent-color, 20%);
+    }
+  }
+
+  .selectOptions {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    .selectCurrentOption {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 10px;
+      background-color: $accent-color;
+      color: $text-color-secondary;
+      border: 1px solid $controls-bg-secondary;
+      border-bottom: 0;
+
+      &__active {
+        background-color: $controls-bg-primary-hover;
+      }
+    }
+  }
+}

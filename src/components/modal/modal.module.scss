@@ -1,0 +1,64 @@
+@use '@/styles/variables.scss' as *;
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100dvh;
+
+  .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+    opacity: 0.7;
+  }
+
+  .modalContent {
+    position: relative;
+    overflow-y: hidden;
+    background-color: $bg-color-primary;
+    border-radius: 20px;
+    text-align: left;
+    padding: 40px;
+    max-height: 768px;
+    max-width: 940px;
+
+    .modalClose {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 40px;
+      top: 40px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    .modalContent {
+      padding: 30px 20px;
+      max-width: none;
+      max-height: none;
+      height: 100dvh;
+      width: 100vw;
+      max-height: 100dvh;
+      border-radius: 0;
+      overflow-y: auto;
+
+      .modalClose {
+        right: 15px;
+        top: 15px;
+      }
+    }
+  }
+}

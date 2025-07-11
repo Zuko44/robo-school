@@ -1,0 +1,109 @@
+@use '@/styles/variables.scss' as *;
+
+.teacherContent {
+  max-width: 860px;
+  height: 690px;
+  .content {
+    display: flex;
+    gap: 40px;
+
+    .contentImg {
+      width: 160px;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .contentInfo {
+      .contentTitle {
+        font-size: 24px;
+        font-weight: 600;
+        color: $text-color-primary;
+      }
+
+      .contentUnderTitle {
+        margin-top: 10px;
+        font-size: 18px;
+        color: $text-color-tertiary;
+      }
+    }
+  }
+
+  .contentBottom {
+    margin-top: 40px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 98%;
+      height: 25px;
+      bottom: 0;
+      left: 0;
+      background-image: $bg-color-gradient;
+    }
+
+    .contentBottomTabs {
+      max-height: 340px;
+      overflow-y: auto;
+      padding-bottom: 25px;
+
+      .tabContent {
+        display: block;
+        padding: 6px 0;
+        border-top: none;
+
+        .tabInfo {
+          font-size: 20px;
+          line-height: 32px;
+        }
+
+        .tabTitle {
+          font-size: 24px;
+          font-weight: 600;
+          color: $text-color-primary;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .teacherContent {
+    .content {
+      gap: 20px;
+
+      .contentImg {
+        max-width: 100%;
+        min-width: 40px;
+        height: auto;
+      }
+
+      .contentInfo {
+        margin-top: 10px;
+
+        .contentTitle {
+          font-size: 16px;
+        }
+
+        .contentUnderTitle {
+          margin-top: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .contentBottom {
+      margin-top: 20px;
+      flex-grow: 1;
+
+      &::after {
+        content: none;
+      }
+
+      .contentBottomTabs {
+        max-height: unset;
+      }
+    }
+  }
+}
