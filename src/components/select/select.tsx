@@ -2,13 +2,9 @@ import { useRef, useState } from 'react';
 
 import { ArrowDown } from '@/assets/icons';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
+import type { Option } from '@/types/teacher-select';
 
 import styles from './select.module.scss';
-
-interface Option {
-  value: string;
-  label: string;
-}
 
 interface SelectProps {
   options: Option[];
