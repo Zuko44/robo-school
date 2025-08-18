@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { getTeacherById } from '@/api/mock-api';
 import type { TeacherType } from '@/types/teacher';
 
- 
 export const useTeacherData = (teacherId: number) => {
   const [state, setState] = useState<{
     teacher: TeacherType | null;
