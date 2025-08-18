@@ -4,34 +4,46 @@ import { useWindowSize } from '@/hooks/useWindowSize';
 
 import { SocialLinks } from '../components/links';
 import { Tabs } from '../components/tabs';
-import { useTabs } from './teacher-hooks/use-tabs';
-import { useTeacherData } from './teacher-hooks/use-teacher-data';
+import { useTeacherData } from './hooks/use-teacher-data';
+import { useTeacherTabs } from './hooks/use-teacher-tabs';
+import type { Option } from './types/tab-option';
 
 import styles from './teacher-modal-content.module.scss';
 
 interface TeacherModalContentProps {
   teacherId: number;
-  // eslint-disable-next-line no-unused-vars
-  onLoadingChange?: (loading: boolean) => void;
 }
 
-export const TeacherModalContent = ({ teacherId, onLoadingChange }: TeacherModalContentProps) => {
+export const TeacherModalContent = ({ teacherId }: TeacherModalContentProps) => {
   const { isMobile } = useWindowSize();
 
-  const { teacher, loading, error } = useTeacherData(teacherId, onLoadingChange);
+  const { teacher, loading, error } = useTeacherData(teacherId);
 
-  const { options, activeTab, setActiveTab, content: activeContent, tabsError } = useTabs(teacher);
+  const { options, activeTab, setActiveTab, content: activeContent } = useTeacherTabs(teacher);
 
-  if (loading) return <div>Загрузка…</div>;
-  if (error || !teacher) return <div>{error ?? 'Нет данных'}</div>;
-  if (tabsError) return <div>{tabsError}</div>;
+  if (loading) {
+    return (
+      <div className={styles.loaderOverlay}>
+        <div className={styles.loaderContent}>Загрузка...</div>
+      </div>
+    );
+  }
+  if (error || !teacher) {
+    return <div>{error ?? 'Нет данных'}</div>;
+  }
 
   const { name, description, imageSrc, links } = teacher;
   const imageSource = teachersImages[imageSrc as keyof typeof teachersImages];
 
-  const handleTabClick = (value: string) => {
-    const matched = options.find((o) => o.value === value);
-    if (matched) setActiveTab(matched);
+  const handleTabChange = (tabOrValue: Option | string) => {
+    if (typeof tabOrValue === 'string') {
+      const matched = options.find((option) => option.value === tabOrValue);
+      if (matched) {
+        setActiveTab(matched);
+      }
+    } else {
+      setActiveTab(tabOrValue);
+    }
   };
 
   return (
@@ -47,24 +59,30 @@ export const TeacherModalContent = ({ teacherId, onLoadingChange }: TeacherModal
 
       <div className={styles.contentBottom}>
         {isMobile ? (
-          <Select options={options} value={activeTab} onChange={(o) => setActiveTab(o)} />
+          <Select options={options} value={activeTab} onChange={handleTabChange} />
         ) : (
-          <Tabs tabs={options} activeTab={activeTab.value} onTabClick={handleTabClick} />
+          <Tabs tabs={options} activeTab={activeTab.value} onTabClick={handleTabChange} />
         )}
 
         <div className={styles.contentBottomTabs}>
           {activeContent.map((item, idx) => (
             <div key={item.title || idx} className={styles.tabContent}>
               {item.title && <h3 className={styles.tabTitle}>{item.title}</h3>}
-              {item.text.map((p, i) => (
-                <p key={i} className={styles.tabInfo}>
-                  {p}
+              {item.text.map((description, index) => (
+                <p key={index} className={styles.tabInfo}>
+                  {description}
                 </p>
               ))}
             </div>
           ))}
         </div>
       </div>
+
+      {loading && (
+        <div className={styles.loaderOverlay}>
+          <div className={styles.loaderContent}>Загрузка...</div>
+        </div>
+      )}
     </div>
   );
 };

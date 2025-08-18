@@ -4,9 +4,7 @@
 .select {
   position: relative;
   display: inline-block;
-  margin-top: 30px;
   width: 100%;
-  max-width: 300px;
 
   .selectBtn {
     display: flex;
@@ -14,7 +12,7 @@
     align-items: center;
     width: 100%;
     cursor: pointer;
-    border: 1px solid $controls-bg-secondary;
+    border: 1px solid $controls-bg-tertiary;
     padding: 10px;
     background-color: $accent-color;
     color: $text-color-secondary;
@@ -34,6 +32,10 @@
     left: 0;
     width: 100%;
 
+    .allSelect {
+      border: 1px solid $secondary-color;
+    }
+
     .selectCurrentOption {
       display: flex;
       align-items: center;
@@ -42,11 +44,11 @@
       padding: 10px;
       background-color: $accent-color;
       color: $text-color-secondary;
-      border: 1px solid $controls-bg-secondary;
+      border: 1px solid $controls-bg-tertiary;
       border-bottom: 0;
 
-      &__active {
-        background-color: $controls-bg-primary-hover;
+      &.active {
+        background-color: $darck-accent-color;
       }
     }
   }

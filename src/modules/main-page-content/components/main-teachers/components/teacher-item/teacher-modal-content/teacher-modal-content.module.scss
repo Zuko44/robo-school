@@ -1,8 +1,26 @@
 @use '@/styles/variables.scss' as *;
 
+.loaderOverlay {
+  position: absolute;
+  inset: 0;
+  background: $secondary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  .loaderContent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .teacherContent {
-  max-width: 860px;
-  height: 690px;
+  height: 100%;
+  width: 100%;
   .content {
     display: flex;
     gap: 40px;
@@ -74,14 +92,11 @@
       gap: 20px;
 
       .contentImg {
-        max-width: 100%;
-        min-width: 40px;
-        height: auto;
+        width: auto;
+        height: 90px;
       }
 
       .contentInfo {
-        margin-top: 10px;
-
         .contentTitle {
           font-size: 16px;
         }

@@ -18,7 +18,6 @@ export const TeacherItem = ({ teacherItem }: TeacherItemProps) => {
   const imageSource = teachersImages[imageSrc as keyof typeof teachersImages];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   const handleModalOpen = () => {
     setIsModalOpen(true);
@@ -37,8 +36,8 @@ export const TeacherItem = ({ teacherItem }: TeacherItemProps) => {
           Подробнее
         </Button>
       </div>
-      <Modal isOpen={isModalOpen} onClose={handleClose} disableClose={loading}>
-        <TeacherModalContent teacherId={id} onLoadingChange={setLoading} />
+      <Modal isOpen={isModalOpen} onClose={handleClose}>
+        <TeacherModalContent teacherId={id} />
       </Modal>
     </div>
   );

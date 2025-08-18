@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 
 import { ArrowDown } from '@/assets/icons';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
-import type { Option } from '@/types/teacher-select';
+import type { Option } from '@/modules/main-page-content/components/main-teachers/components/teacher-item/teacher-modal-content/types/tab-option';
 
 import styles from './select.module.scss';
 
@@ -66,10 +66,10 @@ export const Select = ({ options, value, onChange, additionalClassname }: Select
       {isSelectOpen && (
         <ul className={styles.selectOptions}>
           {options.map((option) => (
-            <li key={option.value}>
+            <li className={styles.allSelect} key={option.value}>
               <button
                 type="button"
-                className={styles.selectCurrentOption}
+                className={`${styles.selectCurrentOption} ${option.value === value.value ? styles.active : ''}`}
                 onClick={createSelectHandler(option)}
               >
                 {option.label}

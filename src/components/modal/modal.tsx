@@ -1,4 +1,4 @@
-import { type PropsWithChildren, type ReactNode, useEffect, useRef } from 'react';
+import { type PropsWithChildren, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
 import { CloseIconDark } from '@/assets/icons/CloseIconDark';
@@ -9,29 +9,24 @@ import styles from './modal.module.scss';
 interface ModalProps extends PropsWithChildren {
   isOpen: boolean;
   onClose: () => void;
-  icon?: ReactNode;
-  disableClose?: boolean;
 }
 
-export const Modal = ({
-  isOpen,
-  onClose,
-  icon = <CloseIconDark />,
-  disableClose,
-  children,
-}: ModalProps) => {
+export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   const { lockScroll, unlockScroll } = useScrollLock();
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     if (isOpen) {
       lockScroll();
-      return () => {
-        unlockScroll();
-      };
+      return;
     }
+
     unlockScroll();
-  }, [isOpen, lockScroll, unlockScroll]);
+
+    return () => {
+      unlockScroll();
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -40,16 +35,21 @@ export const Modal = ({
   }, [isOpen]);
 
   useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         onClose();
       }
     };
 
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      return () => document.removeEventListener('keydown', handleKeyDown);
-    }
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, [isOpen, onClose]);
 
   if (!isOpen) {
@@ -65,11 +65,14 @@ export const Modal = ({
       <div className={styles.backdrop} onClick={handleModalClose} />
       <div className={styles.modalContent}>
         {children}
-        {!disableClose && (
-          <button className={styles.modalClose} onClick={handleModalClose} aria-label="Закрыть">
-            {icon}
-          </button>
-        )}
+        <button
+          className={styles.modalClose}
+          ref={closeButtonRef}
+          onClick={handleModalClose}
+          aria-label="Закрыть"
+        >
+          <CloseIconDark />
+        </button>
       </div>
     </div>
   );

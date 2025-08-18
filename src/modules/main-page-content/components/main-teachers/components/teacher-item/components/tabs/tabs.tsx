@@ -14,13 +14,13 @@ interface TabsProps {
 }
 
 export const Tabs = ({ tabs, activeTab, onTabClick, additionalClassname }: TabsProps) => {
-  const getTabClassName = (value: string) => {
+  const createTabClassName = (value: string) => {
     const baseClass = styles.tab;
     const activeClass = value === activeTab ? styles.active : '';
     return [baseClass, activeClass, additionalClassname].filter(Boolean).join(' ');
   };
 
-  const handleTabClick = (value: string) => {
+  const createTabClickHandler = (value: string) => {
     onTabClick(value);
   };
 
@@ -30,8 +30,8 @@ export const Tabs = ({ tabs, activeTab, onTabClick, additionalClassname }: TabsP
         <button
           key={value}
           type="button"
-          className={getTabClassName(value)}
-          onClick={() => handleTabClick(value)}
+          className={createTabClassName(value)}
+          onClick={() => createTabClickHandler(value)}
         >
           {label}
         </button>
