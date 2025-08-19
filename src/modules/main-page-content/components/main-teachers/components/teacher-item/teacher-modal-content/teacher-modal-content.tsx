@@ -4,11 +4,12 @@ import { useWindowSize } from '@/hooks/useWindowSize';
 
 import { SocialLinks } from '../components/links';
 import { Tabs } from '../components/tabs';
-import { useTeacherData } from './hooks/use-teacher-data';
-import { useTeacherTabs } from './hooks/use-teacher-tabs';
 import type { Option } from './types/tab-option';
 
 import styles from './teacher-modal-content.module.scss';
+import { useEffect, useState } from 'react';
+import { TeacherTabDataType, TeacherType } from '@/types/teacher';
+import { getTeacherById } from '@/api/mock-api';
 
 interface TeacherModalContentProps {
   teacherId: number;
@@ -17,22 +18,69 @@ interface TeacherModalContentProps {
 export const TeacherModalContent = ({ teacherId }: TeacherModalContentProps) => {
   const { isMobile } = useWindowSize();
 
-  const { teacher, loading, error } = useTeacherData(teacherId);
+  const [state, setState] = useState<{
+    teacher: TeacherType | null;
+    loading: boolean;
+    error: string | null;
+  }>({ teacher: null, loading: true, error: null });
 
-  const { options, activeTab, setActiveTab, content: activeContent } = useTeacherTabs(teacher);
+  const [options, setOptions] = useState<Option[]>([]);
+  const [activeTab, setActiveTab] = useState<Option>({ value: '', label: '' });
+  const [content, setContent] = useState<TeacherTabDataType[]>([]);
 
-  if (loading) {
+  useEffect(() => {
+    let mounted = true;
+
+    setState({ teacher: null, loading: true, error: null });
+
+    getTeacherById(teacherId)
+      .then((data) => {
+        if (!mounted) {
+          return;
+        }
+
+        const tabs = data.tabs ?? [];
+        const opts = tabs.map((tab) => ({ value: tab.name, label: tab.title }));
+
+        setOptions(opts);
+        setActiveTab(opts[0]);
+
+        setState({ teacher: data, loading: false, error: null });
+      })
+      .catch(
+        () =>
+          mounted &&
+          setState({ teacher: null, loading: false, error: 'Не удалось загрузить данные' }),
+      );
+
+    return () => {
+      mounted = false;
+    };
+  }, [teacherId]);
+
+  useEffect(() => {
+    if (!state.teacher || !activeTab.value) {
+      return;
+    }
+    const tab = state.teacher.tabs.find((t) => t.name === activeTab.value);
+    if (tab) {
+      setContent(tab.data);
+    }
+  }, [activeTab, state.teacher]);
+
+  if (state.loading) {
     return (
       <div className={styles.loaderOverlay}>
         <div className={styles.loaderContent}>Загрузка...</div>
       </div>
     );
   }
-  if (error || !teacher) {
-    return <div>{error ?? 'Нет данных'}</div>;
+
+  if (state.error || !state.teacher) {
+    return <div>{state.error ?? 'Нет данных'}</div>;
   }
 
-  const { name, description, imageSrc, links } = teacher;
+  const { name, description, imageSrc, links } = state.teacher;
   const imageSource = teachersImages[imageSrc as keyof typeof teachersImages];
 
   const handleTabChange = (tabOrValue: Option | string) => {
@@ -65,7 +113,7 @@ export const TeacherModalContent = ({ teacherId }: TeacherModalContentProps) => 
         )}
 
         <div className={styles.contentBottomTabs}>
-          {activeContent.map((item, idx) => (
+          {content.map((item, idx) => (
             <div key={item.title || idx} className={styles.tabContent}>
               {item.title && <h3 className={styles.tabTitle}>{item.title}</h3>}
               {item.text.map((description, index) => (
@@ -77,12 +125,6 @@ export const TeacherModalContent = ({ teacherId }: TeacherModalContentProps) => 
           ))}
         </div>
       </div>
-
-      {loading && (
-        <div className={styles.loaderOverlay}>
-          <div className={styles.loaderContent}>Загрузка...</div>
-        </div>
-      )}
     </div>
   );
 };
