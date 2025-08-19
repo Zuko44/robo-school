@@ -1,15 +1,16 @@
+import { useEffect, useState } from 'react';
+
+import { getTeacherById } from '@/api/mock-api';
 import { teachersImages } from '@/assets/images';
 import { Select } from '@/components/select';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import type { TeacherTabDataType, TeacherType } from '@/types/teacher';
 
 import { SocialLinks } from '../components/links';
 import { Tabs } from '../components/tabs';
 import type { Option } from './types/tab-option';
 
 import styles from './teacher-modal-content.module.scss';
-import { useEffect, useState } from 'react';
-import { TeacherTabDataType, TeacherType } from '@/types/teacher';
-import { getTeacherById } from '@/api/mock-api';
 
 interface TeacherModalContentProps {
   teacherId: number;
