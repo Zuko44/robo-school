@@ -1,12 +1,9 @@
+import type { Option } from '@/types/tab-option';
+
 import styles from './tabs.module.scss';
 
-interface TabOption {
-  value: string;
-  label: string;
-}
-
 interface TabsProps {
-  tabs: TabOption[];
+  tabs: Option[];
   activeTab: string;
   // eslint-disable-next-line no-unused-vars
   onTabClick: (value: string) => void;

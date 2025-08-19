@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 
 import { ArrowDown } from '@/assets/icons';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
-import type { Option } from '@/modules/main-page-content/components/main-teachers/components/teacher-item/teacher-modal-content/types/tab-option';
+import type { Option } from '@/types/tab-option';
 
 import styles from './select.module.scss';
 

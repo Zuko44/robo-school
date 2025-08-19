@@ -29,15 +29,11 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
-      closeButtonRef.current?.focus();
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
     if (!isOpen) {
       return;
     }
+
+    closeButtonRef.current?.focus();
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {

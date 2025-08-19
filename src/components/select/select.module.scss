@@ -12,6 +12,7 @@
     align-items: center;
     width: 100%;
     cursor: pointer;
+    user-select: none;
     border: 1px solid $controls-bg-tertiary;
     padding: 10px;
     background-color: $accent-color;
