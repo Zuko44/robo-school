@@ -11,20 +11,13 @@ export const useTeacherData = (teacherId: number) => {
   }>({ teacher: null, loading: true, error: null });
 
   useEffect(() => {
-    let mounted = true;
     setState({ teacher: null, loading: true, error: null });
 
     getTeacherById(teacherId)
-      .then((data) => mounted && setState({ teacher: data, loading: false, error: null }))
-      .catch(
-        () =>
-          mounted &&
-          setState({ teacher: null, loading: false, error: 'Не удалось загрузить данные' }),
+      .then((data) => setState({ teacher: data, loading: false, error: null }))
+      .catch(() =>
+        setState({ teacher: null, loading: false, error: 'Не удалось загрузить данные' }),
       );
-
-    return () => {
-      mounted = false;
-    };
   }, [teacherId]);
 
   return state;

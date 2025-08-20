@@ -1,13 +1,8 @@
 @use '@/styles/variables.scss' as *;
 
-.loaderOverlay {
-  position: absolute;
-  inset: 0;
-  background: $secondary-color;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
+.teacherContent {
+  width: 860px;
+  height: 690px;
 
   .loaderContent {
     height: 100%;
@@ -16,11 +11,6 @@
     justify-content: center;
     align-items: center;
   }
-}
-
-.teacherContent {
-  height: 768px;
-  width: 940px;
 
   .content {
     display: flex;
@@ -68,19 +58,17 @@
 
       .tabContent {
         display: block;
-        padding: 6px 0;
         border-top: none;
+        margin-top: 20px;
 
         .tabInfo {
           font-size: 20px;
-          line-height: 32px;
         }
 
         .tabTitle {
           font-size: 24px;
           font-weight: 600;
           color: $text-color-primary;
-          margin-top: 20px;
         }
       }
     }
@@ -122,6 +110,17 @@
 
       .contentBottomTabs {
         max-height: unset;
+        margin-top: 20px;
+
+        .tabContent {
+          .tabInfo {
+            font-size: 14px;
+          }
+
+          .tabTitle {
+            font-size: 16px;
+          }
+        }
       }
     }
   }

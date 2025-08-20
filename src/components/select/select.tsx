@@ -8,7 +8,7 @@ import styles from './select.module.scss';
 
 interface SelectProps {
   options: Option[];
-  value: Option;
+  value?: Option;
   // eslint-disable-next-line no-unused-vars
   onChange: (option: Option) => void;
   additionalClassname?: string;
@@ -59,7 +59,7 @@ export const Select = ({ options, value, onChange, additionalClassname }: Select
         className={styles.selectBtn}
         onClick={handleSelectClickBtn}
       >
-        <span>{value.label}</span>
+        <span>{value?.label}</span>
         <ArrowDown />
       </button>
 
@@ -69,7 +69,7 @@ export const Select = ({ options, value, onChange, additionalClassname }: Select
             <li className={styles.allSelect} key={option.value}>
               <button
                 type="button"
-                className={`${styles.selectCurrentOption} ${option.value === value.value ? styles.active : ''}`}
+                className={`${styles.selectCurrentOption} ${option.value === value?.value ? styles.active : ''}`}
                 onClick={createSelectHandler(option)}
               >
                 {option.label}

@@ -1,4 +1,5 @@
 @use 'fonts' as *;
+@use 'sass:color';
 
 $primary-color: #141024;
 $secondary-color: #ffffff;
@@ -25,9 +26,9 @@ $bg-color-gradient: linear-gradient(#ffffff82, #ffffff82, #ffffffd9);
 $border-color-primary: $accent-color;
 
 $controls-bg-primary: $accent-color;
-$controls-bg-primary-hover: darken($accent-color, 5%);
+$controls-bg-primary-hover: color.scale($accent-color, $lightness: -5%);
 $controls-bg-secondary: $primary-color;
-$controls-bg-secondary-hover: lighten($primary-color, 5%);
+$controls-bg-secondary-hover: color.scale($primary-color, $lightness: 5%);
 $controls-bg-tertiary: $secondary-color;
 $controls-bg-scrollbar-color: $light-gray-color;
 $controls-color-primary: $secondary-color;

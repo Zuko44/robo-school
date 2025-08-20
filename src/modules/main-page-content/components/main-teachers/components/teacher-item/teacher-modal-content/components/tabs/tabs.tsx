@@ -4,9 +4,9 @@ import styles from './tabs.module.scss';
 
 interface TabsProps {
   tabs: Option[];
-  activeTab: string;
+  activeTab?: string;
   // eslint-disable-next-line no-unused-vars
-  onTabClick: (value: string) => void;
+  onTabClick: (value: Option) => void;
   additionalClassname?: string;
 }
 
@@ -17,7 +17,7 @@ export const Tabs = ({ tabs, activeTab, onTabClick, additionalClassname }: TabsP
     return [baseClass, activeClass, additionalClassname].filter(Boolean).join(' ');
   };
 
-  const createTabClickHandler = (value: string) => {
+  const createTabClickHandler = (value: Option) => () => {
     onTabClick(value);
   };
 
@@ -28,7 +28,7 @@ export const Tabs = ({ tabs, activeTab, onTabClick, additionalClassname }: TabsP
           key={value}
           type="button"
           className={createTabClassName(value)}
-          onClick={() => createTabClickHandler(value)}
+          onClick={createTabClickHandler({ value, label })}
         >
           {label}
         </button>
