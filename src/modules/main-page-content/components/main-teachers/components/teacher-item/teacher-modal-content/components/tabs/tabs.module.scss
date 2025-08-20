@@ -1,0 +1,25 @@
+@use '@/styles/variables.scss' as *;
+
+.tabs {
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  border-bottom: 2px solid $light-gray-color;
+
+  .tab {
+    color: $text-color-tertiary;
+    transition: color 0.3s ease;
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+
+    &:hover {
+      color: $text-color-primary;
+    }
+
+    &.active {
+      color: $controls-bg-primary;
+    }
+  }
+}
