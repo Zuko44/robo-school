@@ -1,0 +1,127 @@
+@use '@/styles/variables.scss' as *;
+
+.teacherContent {
+  width: 860px;
+  height: 690px;
+
+  .loaderContent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    display: flex;
+    gap: 40px;
+
+    .contentImg {
+      width: 160px;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .contentInfo {
+      .contentTitle {
+        font-size: 24px;
+        font-weight: 600;
+        color: $text-color-primary;
+      }
+
+      .contentUnderTitle {
+        margin-top: 10px;
+        font-size: 18px;
+        color: $text-color-tertiary;
+      }
+    }
+  }
+
+  .contentBottom {
+    margin-top: 40px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 98%;
+      height: 25px;
+      bottom: 0;
+      left: 0;
+      background-image: $bg-color-gradient;
+    }
+
+    .contentBottomTabs {
+      max-height: 340px;
+      overflow-y: auto;
+      padding-bottom: 25px;
+
+      .tabContent {
+        display: block;
+        border-top: none;
+        margin-top: 20px;
+
+        .tabInfo {
+          font-size: 20px;
+        }
+
+        .tabTitle {
+          font-size: 24px;
+          font-weight: 600;
+          color: $text-color-primary;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .teacherContent {
+    height: 100%;
+    width: 100%;
+
+    .content {
+      gap: 20px;
+
+      .contentImg {
+        width: auto;
+        height: 90px;
+      }
+
+      .contentInfo {
+        .contentTitle {
+          font-size: 16px;
+        }
+
+        .contentUnderTitle {
+          margin-top: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .contentBottom {
+      margin-top: 20px;
+      flex-grow: 1;
+
+      &::after {
+        content: none;
+      }
+
+      .contentBottomTabs {
+        max-height: unset;
+        margin-top: 20px;
+
+        .tabContent {
+          .tabInfo {
+            font-size: 14px;
+          }
+
+          .tabTitle {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
